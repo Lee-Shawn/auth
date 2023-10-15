@@ -1,8 +1,8 @@
-package com.laughing.authority.test;
+package com.laughing.system.test;
 
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.laughing.authority.mapper.SysRoleMapper;
+import com.laughing.system.mapper.SysRoleMapper;
 import com.laughing.model.system.SysRole;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

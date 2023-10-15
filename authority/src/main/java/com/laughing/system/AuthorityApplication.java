@@ -1,4 +1,4 @@
-package com.laughing.authority;
+package com.laughing.system;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
@@ -10,7 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @Description:
  * @Version: 1.0
  */
-@MapperScan("com.laughing.authority.mapper")
+@MapperScan("com.laughing.system.mapper")
 @SpringBootApplication
 public class AuthorityApplication {
     public static void main(String[] args) {

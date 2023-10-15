@@ -3,11 +3,9 @@ package com.laughing.model.vo;
 import java.io.Serializable;
 
 /**
- * <p>
  * 角色查询实体
- * </p>
  *
- * @author qy
+ * @author laughing
  * @since 2019-11-08
  */
 public class SysRoleQueryVo implements Serializable {
