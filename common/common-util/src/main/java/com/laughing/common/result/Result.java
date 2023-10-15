@@ -17,6 +17,8 @@ public class Result<T> {
     // 响应数据
     private T data;
 
+    public Result() {}
+
     /**
      * 返回数据
      * @param data 响应数据
