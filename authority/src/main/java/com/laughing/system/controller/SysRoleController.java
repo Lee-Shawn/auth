@@ -2,6 +2,7 @@ package com.laughing.system.controller;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.laughing.model.vo.AssginRoleVo;
 import com.laughing.system.service.SysRoleService;
 import com.laughing.common.result.Result;
 import com.laughing.model.system.SysRole;
@@ -10,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @Author: laughing
@@ -47,6 +49,17 @@ public class SysRoleController {
         Page<SysRole> rolePage = new Page<>(current, size);
         IPage<SysRole> queryRole = sysRoleService.selectPage(rolePage, sysRoleQueryVo);
         return Result.success(queryRole);
+    }
+
+    /**
+     * 根据角色ID查询
+     * @param id 角色ID
+     * @return 角色
+     */
+    @GetMapping("/find/{id}")
+    public Result<SysRole> findById(@PathVariable Long id) {
+        SysRole sysRole = sysRoleService.getById(id);
+        return Result.success(sysRole);
     }
 
     /**
@@ -107,5 +120,27 @@ public class SysRoleController {
         } else {
             return Result.fail();
         }
+    }
+
+    /**
+     * 根据用户ID获取分配的角色
+     * @param userId 用户ID
+     * @return 分配的角色
+     */
+    @GetMapping("/toAssign/{userId}")
+    public Result<Map<String, Object>> toAssign(@PathVariable Long userId) {
+        Map<String, Object> roles = sysRoleService.getRolesByUserId(userId);
+        return Result.success(roles);
+    }
+
+    /**
+     * 根据用户分配角色
+     * @param assginRoleVo 分配角色
+     * @return 是否分配成功
+     */
+    @PostMapping("/doAssign")
+    public Result<Boolean> doAssign(@RequestBody AssginRoleVo assginRoleVo) {
+        sysRoleService.doAssign(assginRoleVo);
+        return Result.success();
     }
 }

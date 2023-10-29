@@ -6,6 +6,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.laughing.model.system.SysUser;
 import com.laughing.model.vo.SysUserQueryVo;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
 /**
 * @author zane
@@ -13,6 +14,7 @@ import org.apache.ibatis.annotations.Param;
 * @createDate 2023-10-21 22:22:04
 * @Entity com.laughing.model.system.SysUser
 */
+@Repository
 public interface SysUserMapper extends BaseMapper<SysUser> {
     /**
      * 条件分页查询
